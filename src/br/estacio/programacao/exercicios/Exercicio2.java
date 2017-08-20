@@ -5,6 +5,7 @@
  */
 package br.estacio.programacao.exercicios;
 
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -45,6 +46,12 @@ public class Exercicio2 extends javax.swing.JFrame {
 
         jLabel1.setText("Peso na Terra (kg):");
 
+        txtPeso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPesoKeyTyped(evt);
+            }
+        });
+
         btnCalculaPeso.setText("Calcular Peso");
         btnCalculaPeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +62,7 @@ public class Exercicio2 extends javax.swing.JFrame {
         pnlPlanetas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Selecione um Planeta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
         pnlPlanetas.setToolTipText("");
 
+        rbMercurio.setSelected(true);
         rbMercurio.setText("Mercúrio");
         rbMercurio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,79 +167,107 @@ public class Exercicio2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCalculaPeso))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlPlanetas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void rbMercurioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMercurioActionPerformed
-       rbJupiter.setSelected(false);
-       rbMarte.setSelected(false);
-       rbSaturno.setSelected(false);
-       rbUrano.setSelected(false);
-       rbVenus.setSelected(false);
+        rbJupiter.setSelected(false);
+        rbMarte.setSelected(false);
+        rbSaturno.setSelected(false);
+        rbUrano.setSelected(false);
+        rbVenus.setSelected(false);
     }//GEN-LAST:event_rbMercurioActionPerformed
 
     private void rbVenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVenusActionPerformed
         rbJupiter.setSelected(false);
-       rbMarte.setSelected(false);
-       rbSaturno.setSelected(false);
-       rbUrano.setSelected(false);
-       rbMercurio.setSelected(false);
+        rbMarte.setSelected(false);
+        rbSaturno.setSelected(false);
+        rbUrano.setSelected(false);
+        rbMercurio.setSelected(false);
     }//GEN-LAST:event_rbVenusActionPerformed
 
     private void rbMarteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMarteActionPerformed
         rbJupiter.setSelected(false);
-       rbMercurio.setSelected(false);
-       rbSaturno.setSelected(false);
-       rbUrano.setSelected(false);
-       rbVenus.setSelected(false);
+        rbMercurio.setSelected(false);
+        rbSaturno.setSelected(false);
+        rbUrano.setSelected(false);
+        rbVenus.setSelected(false);
     }//GEN-LAST:event_rbMarteActionPerformed
 
     private void rbJupiterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbJupiterActionPerformed
         rbMercurio.setSelected(false);
-       rbMarte.setSelected(false);
-       rbSaturno.setSelected(false);
-       rbUrano.setSelected(false);
-       rbVenus.setSelected(false);
+        rbMarte.setSelected(false);
+        rbSaturno.setSelected(false);
+        rbUrano.setSelected(false);
+        rbVenus.setSelected(false);
     }//GEN-LAST:event_rbJupiterActionPerformed
 
     private void rbSaturnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSaturnoActionPerformed
         rbJupiter.setSelected(false);
-       rbMarte.setSelected(false);
-       rbMercurio.setSelected(false);
-       rbUrano.setSelected(false);
-       rbVenus.setSelected(false);
+        rbMarte.setSelected(false);
+        rbMercurio.setSelected(false);
+        rbUrano.setSelected(false);
+        rbVenus.setSelected(false);
     }//GEN-LAST:event_rbSaturnoActionPerformed
 
     private void rbUranoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbUranoActionPerformed
         rbJupiter.setSelected(false);
-       rbMarte.setSelected(false);
-       rbSaturno.setSelected(false);
-       rbMercurio.setSelected(false);
-       rbVenus.setSelected(false);
+        rbMarte.setSelected(false);
+        rbSaturno.setSelected(false);
+        rbMercurio.setSelected(false);
+        rbVenus.setSelected(false);
     }//GEN-LAST:event_rbUranoActionPerformed
 
     private void btnCalculaPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculaPesoActionPerformed
-        double peso = Double.parseDouble(txtPeso.getText());
-        double pesoPlaneta=0;
-        if(rbJupiter.isSelected()){
-            pesoPlaneta = (peso/10) * 2.64;
-            JOptionPane.showMessageDialog(this,"O seu Peso em Júpiter é: "+
-                    pesoPlaneta);
-        }else if(rbMercurio.isSelected()){
-             pesoPlaneta = (peso/10) * 0.37;
-            JOptionPane.showMessageDialog(this,"O seu Peso em Mercúiro é: "+
-                    pesoPlaneta);
+        DecimalFormat df = new DecimalFormat("###,##0.00");
+        double pesoPlaneta = 0;
+        if (txtPeso.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Favor informar o peso!!");
+        } else {
+            double peso = Double.parseDouble(txtPeso.getText());
+            if (rbJupiter.isSelected()) {
+                pesoPlaneta = peso * 2.64;
+                JOptionPane.showMessageDialog(this, "O seu Peso em Júpiter é: "
+                        + df.format(pesoPlaneta) + " kg");
+            } else if (rbMercurio.isSelected()) {
+                pesoPlaneta = peso * 0.37;
+                JOptionPane.showMessageDialog(this, "O seu Peso em Mercúrio é: "
+                        + df.format(pesoPlaneta) + " kg");
+            } else if (rbMarte.isSelected()) {
+                pesoPlaneta = peso * 0.38;
+                JOptionPane.showMessageDialog(this, "O seu Peso em Marte é: "
+                        + df.format(pesoPlaneta) + " kg");
+            } else if (rbSaturno.isSelected()) {
+                pesoPlaneta = peso * 1.15;
+                JOptionPane.showMessageDialog(this, "O seu peso em Saturno é: "
+                        + df.format(pesoPlaneta) + " kg");
+            } else if (rbVenus.isSelected()) {
+                pesoPlaneta = peso * 0.88;
+                JOptionPane.showMessageDialog(this, "O seu peso em Vênus é: "
+                        + df.format(pesoPlaneta) + " kg");
+            } else {
+                pesoPlaneta = peso * 1.17;
+                JOptionPane.showMessageDialog(this, "O seu peso em Urano é: "
+                        + df.format(pesoPlaneta) + " kg");
+            }
         }
     }//GEN-LAST:event_btnCalculaPesoActionPerformed
+
+    private void txtPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyTyped
+        String caracteres = "0987654321.";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtPesoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -242,7 +278,7 @@ public class Exercicio2 extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-       /* try {
+ /* try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());

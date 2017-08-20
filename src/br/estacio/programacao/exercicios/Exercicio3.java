@@ -5,6 +5,8 @@
  */
 package br.estacio.programacao.exercicios;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno
@@ -16,6 +18,13 @@ public class Exercicio3 extends javax.swing.JFrame {
      */
     public Exercicio3() {
         initComponents();
+        setLocationRelativeTo(null);
+    }
+
+    public static int randInt(int min, int max) {
+        java.util.Random rand = new java.util.Random();
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+        return randomNum;
     }
 
     /**
@@ -28,49 +37,235 @@ public class Exercicio3 extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        rbPedra = new javax.swing.JRadioButton();
-        rbPapel = new javax.swing.JRadioButton();
+        btnJogar = new javax.swing.JButton();
+        pnlVoce = new javax.swing.JPanel();
         rbTesoura = new javax.swing.JRadioButton();
+        rbPapel = new javax.swing.JRadioButton();
+        rbPedra = new javax.swing.JRadioButton();
+        pnlComputador = new javax.swing.JPanel();
+        rbTesouraComputador = new javax.swing.JRadioButton();
+        rbPapelComputador = new javax.swing.JRadioButton();
+        rbPedraComputador = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Pedra, Papel ou Tesoura");
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Pedra, Papel ou Tesoura?");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        rbPedra.setText("Pedra");
+        btnJogar.setText("Jogar");
+        btnJogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJogarActionPerformed(evt);
+            }
+        });
 
-        rbPapel.setText("Papel");
+        pnlVoce.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Você", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
 
         rbTesoura.setText("Tesoura");
+        rbTesoura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbTesouraActionPerformed(evt);
+            }
+        });
+
+        rbPapel.setText("Papel");
+        rbPapel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbPapelActionPerformed(evt);
+            }
+        });
+
+        rbPedra.setSelected(true);
+        rbPedra.setText("Pedra");
+        rbPedra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbPedraActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlVoceLayout = new javax.swing.GroupLayout(pnlVoce);
+        pnlVoce.setLayout(pnlVoceLayout);
+        pnlVoceLayout.setHorizontalGroup(
+            pnlVoceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlVoceLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlVoceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rbPedra)
+                    .addComponent(rbPapel)
+                    .addComponent(rbTesoura))
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+        pnlVoceLayout.setVerticalGroup(
+            pnlVoceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlVoceLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rbPedra)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbPapel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbTesoura)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnlComputador.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Computador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
+
+        rbTesouraComputador.setText("Tesoura");
+        rbTesouraComputador.setEnabled(false);
+        rbTesouraComputador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbTesouraComputadorActionPerformed(evt);
+            }
+        });
+
+        rbPapelComputador.setText("Papel");
+        rbPapelComputador.setEnabled(false);
+        rbPapelComputador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbPapelComputadorActionPerformed(evt);
+            }
+        });
+
+        rbPedraComputador.setText("Pedra");
+        rbPedraComputador.setEnabled(false);
+        rbPedraComputador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbPedraComputadorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlComputadorLayout = new javax.swing.GroupLayout(pnlComputador);
+        pnlComputador.setLayout(pnlComputadorLayout);
+        pnlComputadorLayout.setHorizontalGroup(
+            pnlComputadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlComputadorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlComputadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rbPedraComputador)
+                    .addComponent(rbPapelComputador)
+                    .addComponent(rbTesouraComputador))
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+        pnlComputadorLayout.setVerticalGroup(
+            pnlComputadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlComputadorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rbPedraComputador)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbPapelComputador)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbTesouraComputador))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rbTesoura)
-                    .addComponent(rbPapel)
-                    .addComponent(rbPedra)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pnlVoce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlComputador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(btnJogar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(rbPedra)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlVoce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlComputador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rbPapel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rbTesoura)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addComponent(btnJogar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJogarActionPerformed
+        int sorteado;
+        int escolha;
+        sorteado = randInt(0, 2);
+        if (rbPedra.isSelected()) {
+            escolha = 0;
+        } else if (rbPapel.isSelected()) {
+            escolha = 1;
+        } else {
+            escolha = 2;
+        }
+        switch (sorteado) {
+            case 0:
+                rbPedraComputador.setSelected(true);
+                rbPapelComputador.setSelected(false);
+                rbTesouraComputador.setSelected(false);
+                break;
+            case 1:
+                rbPapelComputador.setSelected(true);
+                rbPedraComputador.setSelected(false);
+                rbTesouraComputador.setSelected(false);
+                break;
+            case 2:
+                rbTesouraComputador.setSelected(true);
+                rbPapelComputador.setSelected(false);
+                rbPedraComputador.setSelected(false);
+                break;
+        }
+        if (sorteado == 0 && escolha == 1) {
+            JOptionPane.showMessageDialog(this, "Você Ganhou!");
+        } else if (sorteado == 0 && escolha == 2) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        } else if (sorteado == 1 && escolha == 0) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        } else if (sorteado == 1 && escolha == 2) {
+            JOptionPane.showMessageDialog(this, "Você Ganhou!");
+        } else if (sorteado == 2 && escolha == 0) {
+            JOptionPane.showMessageDialog(this, "Você Ganhou!");
+        } else if (sorteado == 2 && escolha == 1) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Empatou!");
+        }
+
+    }//GEN-LAST:event_btnJogarActionPerformed
+
+    private void rbPedraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPedraActionPerformed
+        rbPapel.setSelected(false);
+        rbTesoura.setSelected(false);
+    }//GEN-LAST:event_rbPedraActionPerformed
+
+    private void rbPapelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPapelActionPerformed
+        rbPedra.setSelected(false);
+        rbTesoura.setSelected(false);
+    }//GEN-LAST:event_rbPapelActionPerformed
+
+    private void rbTesouraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbTesouraActionPerformed
+        rbPapel.setSelected(false);
+        rbPedra.setSelected(false);
+    }//GEN-LAST:event_rbTesouraActionPerformed
+
+    private void rbTesouraComputadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbTesouraComputadorActionPerformed
+
+    }//GEN-LAST:event_rbTesouraComputadorActionPerformed
+
+    private void rbPapelComputadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPapelComputadorActionPerformed
+
+    }//GEN-LAST:event_rbPapelComputadorActionPerformed
+
+    private void rbPedraComputadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPedraComputadorActionPerformed
+
+    }//GEN-LAST:event_rbPedraComputadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,7 +276,7 @@ public class Exercicio3 extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+ /*   try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -96,7 +291,7 @@ public class Exercicio3 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Exercicio3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Exercicio3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        }*/
         //</editor-fold>
 
         /* Create and display the form */
@@ -108,9 +303,15 @@ public class Exercicio3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnJogar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel pnlComputador;
+    private javax.swing.JPanel pnlVoce;
     private javax.swing.JRadioButton rbPapel;
+    private javax.swing.JRadioButton rbPapelComputador;
     private javax.swing.JRadioButton rbPedra;
+    private javax.swing.JRadioButton rbPedraComputador;
     private javax.swing.JRadioButton rbTesoura;
+    private javax.swing.JRadioButton rbTesouraComputador;
     // End of variables declaration//GEN-END:variables
 }

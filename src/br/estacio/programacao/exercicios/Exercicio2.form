@@ -45,14 +45,14 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtPeso" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCalculaPeso" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="pnlPlanetas" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,6 +64,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtPeso">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPesoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCalculaPeso">
       <Properties>
@@ -136,6 +139,7 @@
       <SubComponents>
         <Component class="javax.swing.JRadioButton" name="rbMercurio">
           <Properties>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Merc&#xfa;rio"/>
           </Properties>
           <AccessibilityProperties>
