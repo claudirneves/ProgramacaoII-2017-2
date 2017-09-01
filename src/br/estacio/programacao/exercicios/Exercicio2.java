@@ -254,10 +254,12 @@ public class Exercicio2 extends javax.swing.JFrame {
                 pesoPlaneta = peso * 0.88;
                 JOptionPane.showMessageDialog(this, "O seu peso em Vênus é: "
                         + df.format(pesoPlaneta) + " kg");
-            } else {
+            } else if (rbUrano.isSelected()){
                 pesoPlaneta = peso * 1.17;
                 JOptionPane.showMessageDialog(this, "O seu peso em Urano é: "
                         + df.format(pesoPlaneta) + " kg");
+            }else{
+                JOptionPane.showMessageDialog(this,"Você não selecionou nenhum planeta!");
             }
         }
     }//GEN-LAST:event_btnCalculaPesoActionPerformed
