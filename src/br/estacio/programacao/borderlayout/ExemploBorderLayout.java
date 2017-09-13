@@ -6,6 +6,7 @@
 package br.estacio.programacao.borderlayout;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -23,6 +24,7 @@ public class ExemploBorderLayout extends JFrame {
     private JButton botaoCentro;
 
     private BorderLayout layout;
+   
     
     public ExemploBorderLayout(){
         botaoSul = new JButton("Botão ao Sul");
@@ -31,6 +33,7 @@ public class ExemploBorderLayout extends JFrame {
         botaoOeste = new JButton("Botão ao Oeste");
         botaoCentro = new JButton("Botão ao Centro");
         layout = new BorderLayout();
+        
         
       
         this.setLayout(layout);
