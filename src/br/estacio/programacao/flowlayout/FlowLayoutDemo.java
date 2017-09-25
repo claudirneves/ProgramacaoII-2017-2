@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  * @author aluno
  */
 public class FlowLayoutDemo {
-
+ 
     /**
      * @param args the command line arguments
      */
@@ -21,6 +21,7 @@ public class FlowLayoutDemo {
       flowLayoutFrame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
       flowLayoutFrame.setSize( 300, 75 );
       flowLayoutFrame.setVisible( true );
+       
     }
     
 }

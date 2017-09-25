@@ -78,7 +78,7 @@ public class Exercicio1 extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(125, Short.MAX_VALUE)
-                .addComponent(btnVerificaTipo)
+                .addComponent(btnVerificaTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(

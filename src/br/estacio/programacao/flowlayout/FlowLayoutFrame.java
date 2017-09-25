@@ -17,12 +17,13 @@ import javax.swing.JFrame;
  * @author aluno
  */
 class FlowLayoutFrame extends JFrame{
-
+  
     private JButton botao;
     private FlowLayout layout;
     private Container container;
 
     public FlowLayoutFrame() {
+        
         super("FlowLayout Teste em Aula");
         layout = new FlowLayout();
         container =  getContentPane();
@@ -31,6 +32,7 @@ class FlowLayoutFrame extends JFrame{
         add(botao);
         botao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
+               
                 layout.setAlignment(FlowLayout.LEFT);
                 layout.layoutContainer(container);
             }
