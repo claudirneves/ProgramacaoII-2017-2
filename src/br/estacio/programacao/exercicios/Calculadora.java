@@ -6,6 +6,7 @@
 package br.estacio.programacao.exercicios;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -67,10 +68,12 @@ public class Calculadora extends JFrame {
         painelTexto = new JPanel();
         painelBotoes = new JPanel();
         botoesLayout = new GridLayout(4, 4, 2, 2);
-        textoLayout = new FlowLayout();
+        textoLayout = new FlowLayout(FlowLayout.CENTER,5,5);
         layout = new BorderLayout();
-        valores.setSize(10,100);
-        painelTexto.setBounds(5, 5,50,100);
+        
+        valores.setPreferredSize(new Dimension(200,25));
+       // valores.setText("DIGITE AQU);
+        painelTexto.setBounds(5, 5,50,180);
 
         painelTexto.setLayout(textoLayout);
         painelBotoes.setLayout(botoesLayout);
@@ -92,7 +95,7 @@ public class Calculadora extends JFrame {
         painelBotoes.add(ponto);
         painelBotoes.add(igual);
         painelBotoes.add(soma);
-
+        
         this.setLayout(layout);
         this.add(painelTexto, BorderLayout.NORTH);
         this.add(painelBotoes, BorderLayout.SOUTH);
@@ -103,7 +106,7 @@ public class Calculadora extends JFrame {
 
     public static void main(String[] args) {
         Calculadora calculadora = new Calculadora();
-        calculadora.setSize(220, 300);
+        calculadora.setSize(220, 185);
         calculadora.setVisible(true);
     }
 
