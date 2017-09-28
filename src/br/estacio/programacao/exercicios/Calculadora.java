@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,91 +20,106 @@ import javax.swing.JTextField;
  *
  * @author Claudir
  */
-public class Calculadora extends JFrame {
+public class Calculadora extends JFrame implements ActionListener {
 
     /**
      * @param args the command line arguments
      */
-    private JButton um;
-    private JButton dois;
-    private JButton tres;
-    private JButton quatro;
-    private JButton cinco;
-    private JButton seis;
-    private JButton sete;
-    private JButton oito;
-    private JButton nove;
-    private JButton zero;
-    private JButton ponto;
-    private JButton igual;
-    private JButton soma;
-    private JButton divide;
-    private JButton subtrai;
-    private JButton multiplica;
+    private JButton btnUm;
+    private JButton btnDois;
+    private JButton btnTres;
+    private JButton btnQuatro;
+    private JButton btnCinco;
+    private JButton btnSeis;
+    private JButton btnSete;
+    private JButton btnOito;
+    private JButton btnNove;
+    private JButton btnZero;
+    private JButton btnPonto;
+    private JButton btnIgual;
+    private JButton btnSoma;
+    private JButton btnDivide;
+    private JButton btnSubtrai;
+    private JButton btnMultiplica;
     private GridLayout botoesLayout;
     private FlowLayout textoLayout;
-    private JTextField valores;
+    private JTextField txtValores;
     private JPanel painelTexto;
     private JPanel painelBotoes;
     private BorderLayout layout;
 
     public Calculadora() {
         super("Calculadora");
-        um = new JButton("1");
-        dois = new JButton("2");
-        tres = new JButton("3");
-        quatro = new JButton("4");
-        cinco = new JButton("5");
-        seis = new JButton("6");
-        sete = new JButton("7");
-        oito = new JButton("8");
-        nove = new JButton("9");
-        zero = new JButton("0");
-        ponto = new JButton(".");
-        soma = new JButton("+");
-        divide = new JButton("/");
-        subtrai = new JButton("-");
-        multiplica = new JButton("*");
-        igual = new JButton("=");
-        valores = new JTextField();
+        btnUm = new JButton("1");
+        btnDois = new JButton("2");
+        btnTres = new JButton("3");
+        btnQuatro = new JButton("4");
+        btnCinco = new JButton("5");
+        btnSeis = new JButton("6");
+        btnSete = new JButton("7");
+        btnOito = new JButton("8");
+        btnNove = new JButton("9");
+        btnZero = new JButton("0");
+        btnPonto = new JButton(".");
+        btnSoma = new JButton("+");
+        btnDivide = new JButton("/");
+        btnSubtrai = new JButton("-");
+        btnMultiplica = new JButton("*");
+        btnIgual = new JButton("=");
+        txtValores = new JTextField();
         painelTexto = new JPanel();
         painelBotoes = new JPanel();
         botoesLayout = new GridLayout(4, 4, 2, 2);
-        textoLayout = new FlowLayout(FlowLayout.CENTER,5,5);
+        textoLayout = new FlowLayout(FlowLayout.CENTER, 5, 5);
         layout = new BorderLayout();
-        
-        valores.setPreferredSize(new Dimension(200,25));
-       // valores.setText("DIGITE AQU);
-        painelTexto.setBounds(5, 5,50,180);
+
+        txtValores.setPreferredSize(new Dimension(200, 25));
+        // btnUm.setText("DIGITE AQU);
+        painelTexto.setBounds(5, 5, 50, 180);
 
         painelTexto.setLayout(textoLayout);
         painelBotoes.setLayout(botoesLayout);
 
-        painelTexto.add(valores);
-        painelBotoes.add(um);
-        painelBotoes.add(dois);
-        painelBotoes.add(tres);
-        painelBotoes.add(divide);
-        painelBotoes.add(quatro);
-        painelBotoes.add(cinco);
-        painelBotoes.add(seis);
-        painelBotoes.add(multiplica);
-        painelBotoes.add(sete);
-        painelBotoes.add(oito);
-        painelBotoes.add(nove);
-        painelBotoes.add(subtrai);
-        painelBotoes.add(zero);
-        painelBotoes.add(ponto);
-        painelBotoes.add(igual);
-        painelBotoes.add(soma);
-        
+        painelTexto.add(txtValores);
+        painelBotoes.add(btnUm);
+        painelBotoes.add(btnDois);
+        painelBotoes.add(btnTres);
+        painelBotoes.add(btnDivide);
+        painelBotoes.add(btnQuatro);
+        painelBotoes.add(btnCinco);
+        painelBotoes.add(btnSeis);
+        painelBotoes.add(btnMultiplica);
+        painelBotoes.add(btnSete);
+        painelBotoes.add(btnOito);
+        painelBotoes.add(btnNove);
+        painelBotoes.add(btnSubtrai);
+        painelBotoes.add(btnZero);
+        painelBotoes.add(btnPonto);
+        painelBotoes.add(btnIgual);
+        painelBotoes.add(btnSoma);
+
         this.setLayout(layout);
         this.add(painelTexto, BorderLayout.NORTH);
         this.add(painelBotoes, BorderLayout.SOUTH);
-
+        this.setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        
+        btnUm.addActionListener(this);
+        btnDois.addActionListener(this);
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==btnUm){
+          txtValores.setText("1");  
+        }else if(e.getSource()==btnDois){
+            txtValores.setText("2");
+        }
+        
+       }
+
+    
 
     public static void main(String[] args) {
         Calculadora calculadora = new Calculadora();
