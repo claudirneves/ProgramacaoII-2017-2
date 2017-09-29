@@ -11,6 +11,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.function.DoublePredicate;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -47,6 +48,7 @@ public class Calculadora extends JFrame implements ActionListener {
     private JPanel painelTexto;
     private JPanel painelBotoes;
     private BorderLayout layout;
+    
 
     public Calculadora() {
         super("Calculadora");
@@ -72,9 +74,9 @@ public class Calculadora extends JFrame implements ActionListener {
         botoesLayout = new GridLayout(4, 4, 2, 2);
         textoLayout = new FlowLayout(FlowLayout.CENTER, 5, 5);
         layout = new BorderLayout();
-
+        
         txtValores.setPreferredSize(new Dimension(200, 25));
-        // btnUm.setText("DIGITE AQU);
+    
         painelTexto.setBounds(5, 5, 50, 180);
 
         painelTexto.setLayout(textoLayout);
@@ -104,22 +106,86 @@ public class Calculadora extends JFrame implements ActionListener {
         this.setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        
+
         btnUm.addActionListener(this);
         btnDois.addActionListener(this);
+        btnTres.addActionListener(this);
+        btnQuatro.addActionListener(this);
+        btnCinco.addActionListener(this);
+        btnSeis.addActionListener(this);
+        btnSete.addActionListener(this);
+        btnOito.addActionListener(this);
+        btnNove.addActionListener(this);
+        btnZero.addActionListener(this);
+        btnSoma.addActionListener(this);
+        btnSubtrai.addActionListener(this);
+        btnMultiplica.addActionListener(this);
+        btnDivide.addActionListener(this);
+        btnPonto.addActionListener(this);
+        
+        
+        
+        
     }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==btnUm){
-          txtValores.setText("1");  
-        }else if(e.getSource()==btnDois){
-            txtValores.setText("2");
+        double primeiroNumero=0;
+        double segundoNumero=0;
+        int operacao=0;
+        if (e.getSource() == btnUm) {
+            txtValores.setText(txtValores.getText() + "1");
+        } else if (e.getSource() == btnDois) {
+            txtValores.setText(txtValores.getText() + "2");
+        } else if (e.getSource() == btnTres) {
+            txtValores.setText(txtValores.getText() + "3");
+        } else if (e.getSource() == btnQuatro) {
+            txtValores.setText(txtValores.getText() + "4");
+        } else if (e.getSource() == btnCinco) {
+            txtValores.setText(txtValores.getText() + "5");
+        } else if (e.getSource() == btnSeis) {
+            txtValores.setText(txtValores.getText() + "6");
+        } else if (e.getSource() == btnSete) {
+            txtValores.setText(txtValores.getText() + "7");
+        } else if (e.getSource() == btnOito) {
+            txtValores.setText(txtValores.getText() + "8");
+        } else if (e.getSource() == btnNove) {
+            txtValores.setText(txtValores.getText() + "9");
+        } else if (e.getSource() == btnZero) {
+            txtValores.setText(txtValores.getText() + "0");
+        } else if (e.getSource() == btnSoma) {
+            primeiroNumero = Double.parseDouble(txtValores.getText());
+            operacao=1;
+            txtValores.setText(txtValores.getText() + "+"); 
+        } else if (e.getSource() == btnSubtrai) {
+            txtValores.setText(txtValores.getText() + "-");
+        } else if (e.getSource() == btnMultiplica) {
+            txtValores.setText(txtValores.getText() + "*");
+        } else if (e.getSource() == btnDivide) {
+            txtValores.setText(txtValores.getText() + "/");
+        }else if(e.getSource()==btnPonto){
+            txtValores.setText(txtValores.getText() + ",");
+        }else{
+            segundoNumero = Double.parseDouble(txtValores.getText());
+            if(operacao==1){
+                Soma(primeiroNumero,segundoNumero);
+            }
+            
+                
         }
         
-       }
-
-    
+        
+    }
+    public double Soma(double n1, double n2){
+            double resultado=0;
+            String result;
+            resultado = n1+n2;
+            result = String.valueOf(resultado);
+            txtValores.setText(result);
+            return resultado;
+           
+        }
 
     public static void main(String[] args) {
         Calculadora calculadora = new Calculadora();
