@@ -46,6 +46,7 @@ public class Exercicio2 extends javax.swing.JFrame {
 
         jLabel1.setText("Peso na Terra (kg):");
 
+        txtPeso.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtPeso.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPesoKeyTyped(evt);
