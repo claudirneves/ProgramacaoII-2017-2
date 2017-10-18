@@ -398,7 +398,7 @@ public class Calculadora extends JFrame implements ActionListener {
             result = String.valueOf(resultado);
             txtValores.setText(result);
         } else {
-            txtValores.setText("Impossível dividir por zero");
+            txtValores.setText("Impossível dividir por 0");
         }
         return resultado;        
     }
